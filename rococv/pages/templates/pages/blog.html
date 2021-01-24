@@ -1,0 +1,45 @@
+{% extends 'core/base.html' %}
+{% block title %}{{post.title}}{% endblock %}
+ {% load static %}
+{% block content %}
+
+<!--BLOG-->
+   
+        <section class="grey-bg" id="blog">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12">
+              
+                <h3 class="title-small-center text-center">
+                  <span>{{post.title}}</span>
+                </h3>
+                <div class="row">
+                  <div class="col-md-6 col-md-offset-3">
+                 
+                  <center> <img alt="blog-1" src="{{post.image.url}}">  </center>
+                    <p class="content-details text-center">
+                      {{post.content|safe}}
+                    </p>
+
+                    <p class="mb-0 mbt">
+                          <span class="section-heading-under">
+                             Publicado por <em><b>{{post.author}}</b></em> en
+                            {% for category in post.categories.all %}
+                                <a href="{% url 'category' category.id category.name|slugify %}" class="link">
+                                    {{category.name}}</a>
+                                    {% if not forloop.last %}, {% endif %}
+                            {% endfor %}
+                          </span>
+                      </p>
+                    
+                  </div>
+                </div>
+               
+               
+           <!--/.GRID BLOG END-->
+              </div>
+            </div>
+          </div>
+        </section>
+  
+{% endblock %}

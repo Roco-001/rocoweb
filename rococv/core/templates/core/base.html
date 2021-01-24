@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+   
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <meta content="Un pequeño especio para poder mostrar mi trabajo, hablar de las distitnas tecnologías en el mercado y hablar sobre mi. " name="description">
+    <meta content="Rodrigo Rodriguez " name="author">
+     {% load static %}
+    <!--Fav-->
+   <!-- <link href="{% static 'core/vistas/images/favicon.ico' %}" rel="shortcut icon">-->
+   
+    <!--styles-->
+    <link href="{% static 'core/vistas/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'core/vistas/css/owl.carousel.css' %}" rel="stylesheet">
+    <link href="{% static 'core/vistas/css/owl.theme.css' %}" rel="stylesheet">
+    <link href="{% static 'core/vistas/css/magnific-popup.css' %}" rel="stylesheet">
+    <link href="{% static 'core/vistas/css/style.css' %}" rel="stylesheet">
+    <link href="{% static 'core/vistas/css/responsive.css' %}" rel="stylesheet">
+
+    
+    <!--fonts google-->
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500,700' rel='stylesheet' type='text/css'>
+    <script src="https://kit.fontawesome.com/79a220136b.js" crossorigin="anonymous"></script>
+    
+    <!--[if lt IE 9]>
+       <script type="text/javascript" src="js/html5shiv.min.js"></script>
+    <![endif]-->
+     <title>{% block title %}{% endblock %} | Mi Web Personal</title>
+
+  </head>
+  <body>
+
+   
+    <!--PRELOADER-->
+    <div id="preloader">
+      <div id="status">
+         <img alt="logo" src="{% static 'core/vistas/images/logo-loader.png' %}">
+      </div>
+    </div>
+    <!--/.PRELOADER END-->
+    
+   {% if request.path != '/download/'%}
+    <!--HEADER -->
+    <div class="header">
+      <div class="for-sticky">
+        <!--LOGO-->
+        <div class="col-md-2 col-xs-6 logo">
+          <a href="{% url 'home' %}"><img alt="logo" class="logo-nav" src="{% static 'core/vistas/images/logo.png' %}"></a>
+        </div>
+        <!--/.LOGO END-->
+       
+      </div>
+      <div class="menu-wrap">
+        <nav class="menu">
+          <div class="menu-list">
+            <a href="{% url 'home' %}" class="{% if request.path == '' %} active {% endif %}">
+              <span>Home</span>
+            </a>
+            <a href="{% url 'about' %}" class="{% if request.path == '/about/' %} active {% endif %}">
+              <span>Acerca</span>
+            </a>
+            <a " href="{% url 'reference' %}" class="{% if request.path == '/reference/' %} active {% endif %}">
+              <span>Referencias</span>
+            </a>
+            <a  href="{% url 'employement' %}" class="{% if request.path == '/employement/' %} active {% endif %}">
+              <span>Experiencia</span>
+            </a>
+            
+            <a  href="{% url 'education' %}" class="{% if request.path == '/education/' %} active {% endif %}">
+              <span>Educación</span>
+            </a>
+            <a  href="{% url 'blogs' %}" class="{% if request.path|slice:':6' == '/blog/' %}active{% endif %}">
+              <span>Blog</span>
+            </a>
+            <a  href="{% url 'contact' %}" class="{% if request.path == '/contact/' %} active {% endif %}">
+              <span>Contact</span>
+            </a>
+            <a  href="{% url 'print_to_pdf' %}" target="_blank">
+              <span>Download CV<i class="fas fa-download"></i> </span> 
+            </a>
+          </div>
+        </nav>
+        <button class="close-button" id="close-button">Close Menu</button>
+      </div>
+      <button class="menu-button" id="open-button">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button><!--/.for-sticky-->
+    </div>
+    <!--/.HEADER END-->
+     {% endif %}
+    <!--CONTENT WRAP-->
+    <div class="content-wrap">
+      <!--CONTENT-->
+      <div class="content">       
+
+       {% block content %}{% endblock %}
+
+      {% if request.path != '/download/'%}
+        <!--FOOTER-->
+        <footer>
+          <div class="footer-top">
+            <ul class="socials">
+              <li class="facebook">
+                <a href="https://www.linkedin.com/in/rodrigo-rodr%C3%ADguez-00979571/" data-hover="Linkedin" target="_blank">Linkedin</a>
+              </li>
+              <li class="twitter">
+                <a href="https://twitter.com/RodrigoJosueRo3" data-hover="Twitter" target="_blank">Twitter</a>
+              </li>
+              <li class="gplus">
+                <a href="https://www.youtube.com/channel/UCyg-Bm3yjtZ44tIeyipAaPA" data-hover="Google +" target="_blank" >Google +</a>
+              </li>
+              
+
+            </ul>
+          </div>
+
+          <div class="footer-bottom">
+            <div class="container">
+              <div class="row">
+                <a href="https://www.google.com " target="_blank"><img src="{% static 'core/vistas/images/logo-bottom.png' %}" alt="crafted with love"  class="center-block" /></a>
+                
+              </div>
+                </div>
+              </div>
+        </footer>
+        <!--/.FOOTER-END-->
+      
+      <!--/.CONTENT END-->
+       <!--Aviso legal-->
+          <footer class="footer2">
+             <div class="center-block" style= "background: black">        
+              <div class="container">            
+              <div class="row">  
+                <h5>&copy;                   
+                  <a href="#">Aviso Legal</a> 
+                  <a href="#">Cookies</a> 
+                  <a href="#">Política de Privacidad</a>	
+                  Sitio elaborado por la Compañía<a href="#" class="link"> RocoWeb</a> </h5>  
+                </div>
+              </div>
+              </div>
+          </footer>
+        <!-- END Aviso legal-->
+        {%  endif  %}
+
+     <!--/.CONTENT-WRAP END-->
+      </div>
+    <!--/.CONTENT-WRAP END-->
+    </div>
+
+         
+
+    <script src="{% static 'core/vistas/js/jquery-1.9.1.min.js' %}" type="text/javascript"></script>
+    <script src="{% static 'core/vistas/js/jquery.appear.js' %}" type="text/javascript"></script>
+    <script src="{% static 'core/vistas/js/bootstrap.min.js' %}" type="text/javascript"></script>
+    <script src="{% static 'core/vistas/js/classie.js' %}" type="text/javascript"></script>
+    <script src="{% static 'core/vistas/js/owl.carousel.min.js' %}" type="text/javascript"></script>
+    <script src="{% static 'core/vistas/js/jquery.magnific-popup.min.js' %}" type="text/javascript"></script>
+    <script src="{% static 'core/vistas/js/masonry.pkgd.min.js' %}" type="text/javascript"></script>
+    <script src="{% static 'core/vistas/js/masonry.js' %}" type="text/javascript"></script>
+    <script src="{% static 'core/vistas/js/smooth-scroll.min.js' %}" type="text/javascript"></script>
+    <script src="{% static 'core/vistas/js/typed.js' %}" type="text/javascript"></script>
+    <script src="{% static 'core/vistas/js/main.js' %}" type="text/javascript"></script>
+    
+    <script src="{% static 'core/vistas/js/jquery.scrollUp.js' %}"></script>
+
+    <script>
+       $(function () {
+          $.scrollUp( {
+            scrollText:"",
+            scrollSpeed: 2000,
+            
+          } );
+      });
+    </script>
+  </body>
+</html>

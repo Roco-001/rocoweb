@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en" moznomarginboxes>
+    <head>
+        <meta charset="utf-8">
+         <title>CV Rodrigo Rodriguez </title>
+    </head>
+    {% load static %}
+    
+<body class="letter">     
+            
+        <!-- Sumary -->
+            <section>
+                <header class="name" aria-label="Joe Smith">
+               
+                    <center>
+                        <h2>CV RODRIGO RODRIGUEZ </h2>                                
+                                   
+                </header>
+                <section>
+                    <section>
+                        <center>  <h6>Ingeniero en Electrónica</h6>
+                        <p>En todo trabajo siempre busco la manera de desempañarme exitosamente con el fin de reforzar y aplicar mis conocimientos mediante la capacitación continúa, contribuyendo de esta manera al cumplimiento de las metas de la organización y alcanzando así un crecimiento profesional y económico mutuo de tal forma que pueda desarrollarme positivamente en las áreas que ejerza.</p></center>
+            </section>
+    
+        <!-- Empleo -->
+                    <hr/>
+                
+                <h6>Expericiencia Laboral</h6>         
+
+                <ol>
+                {% for item in employements %}
+                    <li>                    
+                        <header>
+                            <p>{{item.tiempo}}</p>
+                            <time> {{item.cargo|upper}}</time>
+                        </header>
+                        <span>{{item.empresa|upper}}</span>
+                        <ul>
+                            <li>{{item.actividades|safe}}</li>                            
+                        </ul>
+                    </li>
+                     {% endfor %}                   
+                </ol>                                
+                <hr/>
+                
+                
+        <!-- Eduaction -->
+                
+
+                <h6>EDUCACIÓN</h6>
+                <ol>
+                 {% for titulo in educations %}
+                    <li>                    
+                         <header>
+                           
+                            <time>{{titulo.titulo}} {{titulo.tiempo}}</time>
+                         </header>
+                        <ul>
+                            <span>{{titulo.universidad}}</span>
+                            <span></span>
+                       </ul>
+                    </li>
+                     <br/>
+                    {% endfor %}  
+                </ol>
+                <hr/>
+
+        <!-- Cursos -->
+        
+                <h6>Cursos</h6>
+                <ul>
+                 {% for curso in cursos  %}
+                    
+                    <li><span>{{ curso.name }}, {{curso.academia}},{{curso.tiempo}}       </span></li>
+                   
+                 {% endfor %} 
+                </ul>
+                <hr/>
+            
+
+        <!-- Habilidades -->
+        
+                <h6>Habilidades</h6>
+                <ul>
+                 {% for skill in skills %}
+                    <li><span> {{skill.name}}, {{skill.porcentaje}} %</span></li>                    
+                {% endfor %}    
+                </ul>
+                <hr/>
+            
+
+        <!-- Referencia -->
+        
+                <h6>Referencias</h6>
+                <ul>
+                {% for item in referencias %}  
+                <li><span>{{item.name}},  {{item.cargo}},  {{item.referencia}} </span></li>
+                   
+                 {% endfor %}           
+                </ul>
+                <hr/>
+                
+        
+        <!-- Contact -->
+            
+                    <h6>Contacto</h6>
+                            <ul>
+                             {% for item in about %}
+                                <li><span>Correo: rodrigojrodriguezm@gmail.com </span></li>
+                                <li><span>Dirección: {{item.direccion}}</span></li>
+                                <li><span>Teléfono: {{item.phone}}</span></li>
+                                <li><span>Linkedin: {{item.url}}</span></li>
+                               
+                            {% endfor %}
+                            </ul>
+                            
+
+
+
+
+
+</body>
+    <!-- Developed by Tom Barrasso. https://barrasso.me -->
+</html>

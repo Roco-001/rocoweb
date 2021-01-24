@@ -1,0 +1,35 @@
+{% extends 'core/base.html' %}
+{% block title %}{{category.name}}{% endblock %}
+
+ {% load static %}
+{% block content %}
+
+<!--BLOG-->
+   
+        <section class="grey-bg" id="blog">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12">
+                <h3 class="title-small-center text-center">
+                  <span>{{category.name}}</span>
+                </h3>
+                <div class="row">
+                  <div class="col-md-6 col-md-offset-3">
+                 
+                  <center> <img alt="blog-1" class="img-circle text-center" src="{{category.image.url}}">  </center>
+                    <p class="content-details text-center">
+                      {{category.content|safe}}
+                    </p>
+
+                                       
+                  </div>
+                </div>
+               
+               
+           <!--/.GRID BLOG END-->
+              </div>
+            </div>
+          </div>
+        </section>
+  
+{% endblock %}

@@ -1,0 +1,58 @@
+{% extends 'core/base.html' %}
+{% block title %}Employement{% endblock %}
+ {% load static %}
+{% block content %}
+
+<!--EMPLOYEMENT-->
+        <section class="grey-bg" id="employement">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-3">
+                <h3 class="title-small">
+                  <span>Experiencia Profesional</span>
+                </h3>
+                <p class="content-detail">
+                 En todo trabajo siempre busco la manera de desempañarme exitosamente con el fin de reforzar y aplicar mis conocimientos mediante la capacitación continúa, contribuyendo de esta manera al cumplimiento de las metas de la organización y alcanzando así un crecimiento profesional y económico mutuo de tal forma que pueda desarrollarme positivamente en las áreas que ejerza.
+                </p>
+              </div>
+              <div class="col-md-9 content-right">
+                <div class="row">
+                  <ul class="listing-item">
+                   {% for item in employements %}
+                    <li>
+                      <div class="col-md-6 col-sm-6">
+                        <div class="wrap-card">
+                          <div class="card">
+                            <h2 class="year">
+                               {{item.tiempo}}
+                            </h2>
+                            <p class="job">
+                             {{item.cargo}}
+                            </p>
+                            <p class="company">
+                              {{item.empresa}}
+                            </p>
+                            <hr>
+                            <div class="text-detail">
+                              <p>
+                                {{item.actividades|safe}}
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    {% endfor %}
+
+                  </ul>  
+                  
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!--/.EMPLOYEMENT END-->
+
+
+{% endblock %}
